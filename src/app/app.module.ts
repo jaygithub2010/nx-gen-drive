@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { WorkspaceComponent } from './workspace/workspace.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { LeftPanelComponent } from './left-panel/left-panel.component';
+import { WorkspaceComponent } from './explorer/work-space/work-space.component';
+import { SearchBarComponent } from './explorer/search-bar/search-bar.component';
+import { LeftPanelComponent } from './explorer/left-panel/left-panel.component';
+import { ExplorerComponent } from './explorer/explorer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WorkspaceComponent,
     SearchBarComponent,
-    LeftPanelComponent
+    LeftPanelComponent,
+    ExplorerComponent
   ],
   imports: [
     BrowserModule

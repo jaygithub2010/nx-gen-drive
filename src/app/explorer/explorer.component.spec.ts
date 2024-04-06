@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkspaceComponent } from './workspace.component';
+import { ExplorerComponent } from './explorer.component';
 
-describe('WorkspaceComponent', () => {
-  let component: WorkspaceComponent;
-  let fixture: ComponentFixture<WorkspaceComponent>;
+describe('ExplorerComponent', () => {
+  let component: ExplorerComponent;
+  let fixture: ComponentFixture<ExplorerComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WorkspaceComponent]
+      declarations: [ExplorerComponent]
     });
-    fixture = TestBed.createComponent(WorkspaceComponent);
+    fixture = TestBed.createComponent(ExplorerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-workspace',
-  templateUrl: './workspace.component.html',
-  styleUrls: ['./workspace.component.css']
+  templateUrl: './work-space.component.html',
+  styleUrls: ['./work-space.component.css']
 })
 export class WorkspaceComponent {
 
