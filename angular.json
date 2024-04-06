@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "files-converge:build:production"
+              "buildTarget": "files-converge:build:production"
             },
             "development": {
-              "browserTarget": "files-converge:build:development"
+              "buildTarget": "files-converge:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "files-converge:build"
+            "buildTarget": "files-converge:build"
           }
         },
         "test": {
