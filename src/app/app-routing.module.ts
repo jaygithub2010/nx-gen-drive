@@ -4,18 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'explorer',
-    loadChildren: () => import('./explorer/project.module').then((m) => m.ProjectModule)
-  },
-  {
-    path: 'summary',
-    loadChildren: () =>
-      import('./work-in-progress/work-in-progress.module').then(
-        (m) => m.WorkInProgressModule
-      )
+    loadChildren: () => import('./explorer/explorer.module').then((m) => m.ExplorerModule)
   },
   {
     path: '',
-    redirectTo: 'project',
+    redirectTo: 'explorer',
     pathMatch: 'full'
   }
 ];
