@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './explorer.component.html',
   styleUrls: ['./explorer.component.css']
 })
-export class ExplorerComponent {
+export class ExplorerComponent{
 
 }

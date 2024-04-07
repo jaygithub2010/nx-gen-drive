@@ -8,11 +8,7 @@ import { ExplorerComponent } from './explorer/explorer.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    WorkspaceComponent,
-    SearchBarComponent,
-    LeftPanelComponent,
-    ExplorerComponent
+    AppComponent
   ],
   imports: [
     BrowserModule
