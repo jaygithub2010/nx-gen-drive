@@ -8,8 +8,8 @@ describe('WorkspaceComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WorkspaceComponent]
-    });
+    declarations: [WorkspaceComponent]
+});
     fixture = TestBed.createComponent(WorkspaceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -8,8 +8,8 @@ describe('LeftPanelComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LeftPanelComponent]
-    });
+    declarations: [LeftPanelComponent]
+});
     fixture = TestBed.createComponent(LeftPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
