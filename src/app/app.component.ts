@@ -13,5 +13,5 @@ import { ExplorerComponent } from './explorer/explorer.component';
     imports: [NgSwitch, NgSwitchDefault, NgSwitchCase, RouterModule, ExplorerComponent]
 })
 export class AppComponent {
-  title = 'files-converge';
+  title = 'nx-gen-drive';
 }
