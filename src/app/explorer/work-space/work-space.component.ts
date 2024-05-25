@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DriveItem } from 'src/app/models/drive-item';
 
 @Component({
   selector: 'app-workspace',
@@ -9,5 +10,5 @@ import { Component } from '@angular/core';
   imports:[CommonModule]
 })
 export class WorkspaceComponent {
-
+  @Input() driveItem:DriveItem;
 }
