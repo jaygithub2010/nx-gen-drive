@@ -9,13 +9,14 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { ExtensionAppsComponent } from './extension-apps/extension-apps.component';
 import { AccountsMenuComponent } from './accounts-menu/accounts-menu.component';
 import { CurrentLocationComponent } from './current-location/current-location.component';
+import { SettingsDriveComponent } from './settings-drive/settings-drive.component';
 
 @Component({
   selector: 'app-explorer',
   templateUrl: './explorer.component.html',
   styleUrls: ['./explorer.component.css'],
   standalone:true,
-  imports:[CommonModule,WorkspaceComponent, ToolbarComponent,SearchBarComponent,LeftPanelComponent, FavouritesComponent, ExtensionAppsComponent, AccountsMenuComponent, CurrentLocationComponent]
+  imports:[CommonModule,WorkspaceComponent, ToolbarComponent,SearchBarComponent,LeftPanelComponent, FavouritesComponent, ExtensionAppsComponent, AccountsMenuComponent, CurrentLocationComponent, SettingsDriveComponent]
 })
 export class ExplorerComponent{
   testItem:DriveItem= { id:"1",name:"test",itemType:ItemType.FOLDER, size:123}
