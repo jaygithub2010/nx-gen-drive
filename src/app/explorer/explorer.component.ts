@@ -6,13 +6,16 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DriveItem, ItemType } from '../models/drive-item';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { ExtensionAppsComponent } from './extension-apps/extension-apps.component';
+import { AccountsMenuComponent } from './accounts-menu/accounts-menu.component';
+import { CurrentLocationComponent } from './current-location/current-location.component';
 
 @Component({
   selector: 'app-explorer',
   templateUrl: './explorer.component.html',
   styleUrls: ['./explorer.component.css'],
   standalone:true,
-  imports:[CommonModule,WorkspaceComponent, ToolbarComponent,SearchBarComponent,LeftPanelComponent, FavouritesComponent]
+  imports:[CommonModule,WorkspaceComponent, ToolbarComponent,SearchBarComponent,LeftPanelComponent, FavouritesComponent, ExtensionAppsComponent, AccountsMenuComponent, CurrentLocationComponent]
 })
 export class ExplorerComponent{
   testItem:DriveItem= { id:"1",name:"test",itemType:ItemType.FOLDER, size:123}
