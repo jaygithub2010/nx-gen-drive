@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "files-converge": {
+    "nx-gen-drive": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/files-converge",
+            "outputPath": "dist/nx-gen-drive",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,9 +25,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+
+            ]
           },
           "configurations": {
             "production": {
@@ -60,18 +65,21 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "files-converge:build:production"
+              "buildTarget": "nx-gen-drive:build:production"
             },
             "development": {
-              "browserTarget": "files-converge:build:development"
+              "buildTarget": "nx-gen-drive:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {      
+              "proxyConfig":"src/proxy.conf.json"
+        }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "files-converge:build"
+            "buildTarget": "nx-gen-drive:build"
           }
         },
         "test": {
@@ -94,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "016d057d-52ff-4e26-9e52-7b65e8ccc490"
   }
 }

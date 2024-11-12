@@ -1,0 +1,20 @@
+<div class="card" style="height: 4em;width: 4em;border: none;">
+  <div *ngIf="(usr$ |async) as usr">
+    <div *ngIf="usr!==null">
+      <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" fill="currentColor" class="bi bi-circle"
+        viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+        <text x="3" y="11" fill="red"
+          style="font-size:0.6em;font-family:monospace">{{usr.firstName[0]}}{{usr.lastName[0]}}</text>
+
+      </svg>
+    </div>
+    <a href="#" class="stretched-link"></a>
+    <div *ngIf="usr===null">
+      <a href="https://localhost:7077/api/account/challenge/google">Click</a>
+    </div>
+  </div>
+  <div *ngIf="!((usr$ |async) )">
+    <a href="https://localhost:7077/api/account/challenge/google">Click</a>
+  </div>
+</div>

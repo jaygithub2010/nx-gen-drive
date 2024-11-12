@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkspaceComponent } from './workspace.component';
+import { WorkspaceComponent } from './work-space.component';
 
 describe('WorkspaceComponent', () => {
   let component: WorkspaceComponent;
@@ -8,8 +8,8 @@ describe('WorkspaceComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WorkspaceComponent]
-    });
+    declarations: [WorkspaceComponent]
+});
     fixture = TestBed.createComponent(WorkspaceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
