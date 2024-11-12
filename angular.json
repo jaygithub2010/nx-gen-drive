@@ -71,7 +71,10 @@
               "buildTarget": "nx-gen-drive:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {      
+              "proxyConfig":"src/proxy.conf.json"
+        }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -99,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "016d057d-52ff-4e26-9e52-7b65e8ccc490"
   }
 }
