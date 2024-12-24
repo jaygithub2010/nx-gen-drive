@@ -1,5 +1,5 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/core/services/account.service';
 import { User } from 'src/app/models/user';
@@ -12,9 +12,8 @@ import { User } from 'src/app/models/user';
   styleUrl: './accounts-menu.component.css'
 })
 export class AccountsMenuComponent {
-accService:AccountService=inject(AccountService);
-usr$:Observable<User|null>;
-constructor(){
-  this.usr$=this.accService.getAccountDetails();
-}
+  usr$: Observable<User | null>;
+  constructor(private accService: AccountService) {
+    this.usr$ = this.accService.getAccountDetails();
+  }
 }
