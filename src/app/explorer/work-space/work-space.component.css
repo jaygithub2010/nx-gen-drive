@@ -1,0 +1,6 @@
+.items-display{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+    justify-content: space-around;
+}
+
