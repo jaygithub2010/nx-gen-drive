@@ -1,7 +1,7 @@
 {
     "apiEndPoints":{
     "getUser":"/api/account/GetUser",
-    "getFiles":"/api/account/GetFiles",
+    "getFiles":"/api/file/GetFiles",
     "loginGoogle":"/api/account/challenge/google",
     "loginDropBox":"/api/account/challenge/dropBox",
     "loginMicrosoft":"/api/account/challenge/microsoft"

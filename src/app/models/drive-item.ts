@@ -7,5 +7,7 @@ export interface DriveItem{
     id:string,
     name:string,
     itemType:ItemType,
-    size:number
+    size:number,
+    mimeType:string,
+    entityType:string
 }

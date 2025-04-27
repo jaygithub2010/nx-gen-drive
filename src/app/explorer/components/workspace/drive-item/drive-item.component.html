@@ -1,15 +1,109 @@
-<div >
-    <div class="card" style="display: inline-block;height: 4em;width: 15em; margin: 1em;" data-toggle="tooltip" data-placement="bottom" title={{driveItem.name}}>
-      <svg class="col-1" width="2em" height="2em" style="margin: 1em;">
-        <g>
-          <path
-            fill="blue" d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"
-          ></path>
-          <path d="M0 0h24v24H0z" fill="none"></path>
-        </g>
-      </svg>
-        <a id={{driveItem.id}} href="www.google.com" class="stretched-link col-7">
-          {{driveItem.name}}
-        </a>
-      </div>
+<div>
+  <div class="card" style="display: inline-block;height: 4em;width: 15em; margin: 1em;" data-toggle="tooltip"
+    data-placement="bottom" title={{driveItem.name}}>
+    @if (driveItem.entityType=="Folder")
+    { <svg class="col-1" width="2em" height="2em" style="margin: 1em;">
+      <g>
+        <path fill="blue"
+          d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </g>
+    </svg>
+    }
+    @else if (driveItem.entityType=="Pdf") {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-earmark-pdf-fill" viewBox="0 0 16 16">
+      <path
+        d="M5.523 12.424q.21-.124.459-.238a8 8 0 0 1-.45.606c-.28.337-.498.516-.635.572l-.035.012a.3.3 0 0 1-.026-.044c-.056-.11-.054-.216.04-.36.106-.165.319-.354.647-.548m2.455-1.647q-.178.037-.356.078a21 21 0 0 0 .5-1.05 12 12 0 0 0 .51.858q-.326.048-.654.114m2.525.939a4 4 0 0 1-.435-.41q.344.007.612.054c.317.057.466.147.518.209a.1.1 0 0 1 .026.064.44.44 0 0 1-.06.2.3.3 0 0 1-.094.124.1.1 0 0 1-.069.015c-.09-.003-.258-.066-.498-.256M8.278 6.97c-.04.244-.108.524-.2.829a5 5 0 0 1-.089-.346c-.076-.353-.087-.63-.046-.822.038-.177.11-.248.196-.283a.5.5 0 0 1 .145-.04c.013.03.028.092.032.198q.008.183-.038.465z" />
+      <path fill="blue" fill-rule="evenodd"
+        d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2zM4.165 13.668c.09.18.23.343.438.419.207.075.412.04.58-.03.318-.13.635-.436.926-.786.333-.401.683-.927 1.021-1.51a11.7 11.7 0 0 1 1.997-.406c.3.383.61.713.91.95.28.22.603.403.934.417a.86.86 0 0 0 .51-.138c.155-.101.27-.247.354-.416.09-.181.145-.37.138-.563a.84.84 0 0 0-.2-.518c-.226-.27-.596-.4-.96-.465a5.8 5.8 0 0 0-1.335-.05 11 11 0 0 1-.98-1.686c.25-.66.437-1.284.52-1.794.036-.218.055-.426.048-.614a1.24 1.24 0 0 0-.127-.538.7.7 0 0 0-.477-.365c-.202-.043-.41 0-.601.077-.377.15-.576.47-.651.823-.073.34-.04.736.046 1.136.088.406.238.848.43 1.295a20 20 0 0 1-1.062 2.227 7.7 7.7 0 0 0-1.482.645c-.37.22-.699.48-.897.787-.21.326-.275.714-.08 1.103" />
+    </svg>
+    }
+    @else if (driveItem.entityType=="Text") {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-text-fill" viewBox="0 0 16 16">
+      <path fill="blue"
+        d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1" />
+    </svg>
+    }
+    @else if (driveItem.entityType=="Archive") {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-earmark-zip-fill" viewBox="0 0 16 16">
+      <path fill="blue"
+        d="M5.5 9.438V8.5h1v.938a1 1 0 0 0 .03.243l.4 1.598-.93.62-.93-.62.4-1.598a1 1 0 0 0 .03-.243" />
+      <path
+        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1m-4-.5V2h-1V1H6v1h1v1H6v1h1v1H6v1h1v1H5.5V6h-1V5h1V4h-1V3zm0 4.5h1a1 1 0 0 1 1 1v.938l.4 1.599a1 1 0 0 1-.416 1.074l-.93.62a1 1 0 0 1-1.109 0l-.93-.62a1 1 0 0 1-.415-1.074l.4-1.599V8.5a1 1 0 0 1 1-1" />
+    </svg>
+    }
+    @else if (driveItem.entityType=="Word") {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-earmark-word-fill" viewBox="0 0 16 16">
+      <path fill="blue"
+        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M5.485 6.879l1.036 4.144.997-3.655a.5.5 0 0 1 .964 0l.997 3.655 1.036-4.144a.5.5 0 0 1 .97.242l-1.5 6a.5.5 0 0 1-.967.01L8 9.402l-1.018 3.73a.5.5 0 0 1-.967-.01l-1.5-6a.5.5 0 1 1 .97-.242z" />
+    </svg>
+
+    }
+    @else if (driveItem.entityType=="SpreadSheet") {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-earmark-spreadsheet-fill" viewBox="0 0 16 16">
+      <path d="M6 12v-2h3v2z" />
+      <path fill="blue"
+        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M3 9h10v1h-3v2h3v1h-3v2H9v-2H6v2H5v-2H3v-1h2v-2H3z" />
+    </svg>
+    }
+    @else if (driveItem.entityType=="Audio") {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-earmark-music-fill" viewBox="0 0 16 16">
+      <path fill="blue"
+        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 6.64v1.75l-2 .5v3.61c0 .495-.301.883-.662 1.123C7.974 13.866 7.499 14 7 14s-.974-.134-1.338-.377C5.302 13.383 5 12.995 5 12.5s.301-.883.662-1.123C6.026 11.134 6.501 11 7 11c.356 0 .7.068 1 .196V6.89a1 1 0 0 1 .757-.97l1-.25A1 1 0 0 1 11 6.64" />
+    </svg>
+    }
+    @else if (driveItem.entityType=="Image") {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-earmark-image-fill" viewBox="0 0 16 16">
+      <path fill="blue"
+        d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707v5.586l-2.73-2.73a1 1 0 0 0-1.52.127l-1.889 2.644-1.769-1.062a1 1 0 0 0-1.222.15L2 12.292V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2zm-1.498 4a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+      <path d="M10.564 8.27 14 11.708V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-.293l3.578-3.577 2.56 1.536 2.426-3.395z" />
+    </svg>
+    }
+
+    @else if (driveItem.entityType=="Presentation") {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-earmark-slides-fill" viewBox="0 0 16 16">
+      <path
+        d="M7 9.78V7.22c0-.096.106-.156.19-.106l2.13 1.279a.125.125 0 0 1 0 .214l-2.13 1.28A.125.125 0 0 1 7 9.778z" />
+      <path fill="blue"
+        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M5 6h6a.5.5 0 0 1 .496.438l.5 4A.5.5 0 0 1 11.5 11h-3v2.016c.863.055 1.5.251 1.5.484 0 .276-.895.5-2 .5s-2-.224-2-.5c0-.233.637-.429 1.5-.484V11h-3a.5.5 0 0 1-.496-.562l.5-4A.5.5 0 0 1 5 6" />
+    </svg>
+    }
+
+    @else if (driveItem.entityType=="Video") {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-play-fill" viewBox="0 0 16 16">
+      <path fill="blue"
+        d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M6 5.883a.5.5 0 0 1 .757-.429l3.528 2.117a.5.5 0 0 1 0 .858l-3.528 2.117a.5.5 0 0 1-.757-.43V5.884z" />
+    </svg>
+    }
+
+    @else {
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="1.5em" style="margin: 1em;" fill="currentColor"
+      class="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+      <path fill="blue"
+        d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2z" />
+    </svg>
+    }
+    @if(driveItem.entityType!="Folder")
+    {
+    <a href="https://localhost:7077/api/file/opendoc?docid={{driveItem.id}}&mode=edit&docName={{driveItem.name}}&&docType={{driveItem.mimeType}}"
+      target="_blank" class="stretched-link col-7">
+      {{driveItem.name}}
+    </a>
+    }
+    @else {
+    <a [routerLink]="'/explorer/'+driveItem.id" routerLinkActive="active" class="stretched-link col-7">
+      {{driveItem.name}}
+    </a>
+    }
+  </div>
+
 </div>

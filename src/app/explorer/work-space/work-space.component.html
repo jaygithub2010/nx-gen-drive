@@ -1,9 +1,10 @@
 <div>
   <div *ngIf="(driveItems$|async) as driveItems">
-    <div *ngIf="driveItems!==null" class="items-display">
+    @if(driveItems!==null)
+    {<div class="items-display">
       <app-drive-item *ngFor="let driveItem of driveItems" [driveItem]="driveItem"></app-drive-item>
-    </div>
-  <div *ngIf="(driveItems$|async)!==null">No Files</div>
-</div>
+    </div>}
+    @else {No Files}
+  </div>
 
 </div>

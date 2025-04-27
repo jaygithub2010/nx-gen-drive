@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { concatMap, Observable } from 'rxjs';
 import { APP_SETTINGS } from 'src/app/app.initializer';
@@ -11,7 +11,10 @@ export class DriveDataService {
   constructor(private httpClient: HttpClient, @Inject(APP_SETTINGS) private dIConfig$: Observable<AppSettings>) { 
   }
 
-  getDriveItems(): Observable<DriveItem[] | null> {
-    return this.dIConfig$.pipe(concatMap(x => this.httpClient.get<DriveItem[] | null>(x.apiEndPoints.getFiles)))
+  getDriveItems(folderId?:string): Observable<DriveItem[] | null> {
+
+  const options=folderId?{params:new HttpParams().set('folderId', folderId)}:{};
+  return this.dIConfig$.pipe(concatMap(x => this.httpClient.get<DriveItem[] | null>(x.apiEndPoints.getFiles, options)));
+
   }
 }

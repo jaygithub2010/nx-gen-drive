@@ -10,6 +10,7 @@ import { ExtensionAppsComponent } from './extension-apps/extension-apps.componen
 import { AccountsMenuComponent } from './accounts-menu/accounts-menu.component';
 import { CurrentLocationComponent } from './current-location/current-location.component';
 import { SettingsDriveComponent } from './settings-drive/settings-drive.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-explorer',
@@ -19,4 +20,15 @@ import { SettingsDriveComponent } from './settings-drive/settings-drive.componen
   imports:[CommonModule,WorkspaceComponent, ToolbarComponent,SearchBarComponent,LeftPanelComponent, FavouritesComponent, ExtensionAppsComponent, AccountsMenuComponent, CurrentLocationComponent, SettingsDriveComponent]
 })
 export class ExplorerComponent{
+  folderId:string;
+  constructor(private route:ActivatedRoute)
+  {
+    this.route.params.subscribe(routeParams=>this.folderId=routeParams.id);
+  }
+
+    // // For getting route data
+    // this.activatedRoute.data.subscribe((data) => {
+    //     this.data = data['info'];
+    // });
 }
+
