@@ -1,0 +1,8 @@
+<div style="margin: 20px;">
+    @for (item of reccentItemLinks$|async; track item.id) {
+    <div>
+        <button class="btn btn-link" (click)="navigateToFolder(item.id, item.name)">
+            {{item.name}}</button>
+    </div>
+    }
+</div>

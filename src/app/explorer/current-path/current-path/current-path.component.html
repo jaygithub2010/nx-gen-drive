@@ -1,0 +1,14 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        @for (driveLinkItem of currentPath; track driveLinkItem.id) {
+        @if (driveLinkItem.id === currentPath[currentPath.length - 1].id) {
+        <button (click)="goToFolder(driveLinkItem.id, driveLinkItem.name)" class="breadcrumb-item active"
+            aria-current="page">{{driveLinkItem.name}}</button>
+        }
+        @else {
+        <button class="breadcrumb-item" (click)="goToFolder(driveLinkItem.id, driveLinkItem.name)">
+            {{driveLinkItem.name}}</button>
+        }
+        }
+    </ol>
+</nav>

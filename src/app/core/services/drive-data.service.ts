@@ -4,17 +4,34 @@ import { concatMap, Observable } from 'rxjs';
 import { APP_SETTINGS } from 'src/app/app.initializer';
 import { AppSettings } from 'src/app/models/app-settings';
 import { DriveItem } from 'src/app/models/drive-item';
+import { DriveItemLink } from 'src/app/models/drive-item-link';
 @Injectable({
   providedIn: 'root'
 })
 export class DriveDataService {
-  constructor(private httpClient: HttpClient, @Inject(APP_SETTINGS) private dIConfig$: Observable<AppSettings>) { 
+  constructor(private httpClient: HttpClient, @Inject(APP_SETTINGS) private dIConfig$: Observable<AppSettings>) {
   }
 
-  getDriveItems(folderId?:string): Observable<DriveItem[] | null> {
+  getDriveItems(folderId?: string): Observable<DriveItem[] | null> {
 
-  const options=folderId?{params:new HttpParams().set('folderId', folderId)}:{};
-  return this.dIConfig$.pipe(concatMap(x => this.httpClient.get<DriveItem[] | null>(x.apiEndPoints.getFiles, options)));
+    const options = folderId ? { params: new HttpParams().set('folderId', folderId) } : {};
+    return this.dIConfig$.pipe(concatMap(x => this.httpClient.get<DriveItem[] | null>(x.apiEndPoints.getFiles, options)));
 
   }
+  getDriveItemParents(driveItemId: string): Observable<DriveItemLink[] | null> {
+    const options = driveItemId ? { params: new HttpParams().set('driveItemId', driveItemId) } : {};
+
+    return this.dIConfig$.pipe(concatMap(x => {
+      return this.httpClient.get<DriveItemLink[] | null>(x.apiEndPoints.getDriveItemParents, options)
+        ;
+    }));
+  }
+  getRecentFolders(): Observable<DriveItemLink[] | null> {
+    return this.dIConfig$.pipe(concatMap(x => this.httpClient.get<DriveItemLink[] | null>(x.apiEndPoints.getRecentFolders)));
+  }
+  getDriveItemNameById(driveItemId: string): Observable<DriveItemLink | null> {
+    const options = driveItemId ? { params: new HttpParams().set('driveItemId', driveItemId) } : {};
+    return this.dIConfig$.pipe(concatMap(x => this.httpClient.get<DriveItemLink | null>(x.apiEndPoints.getDriveItemNameById, options)));
+  }
+
 }

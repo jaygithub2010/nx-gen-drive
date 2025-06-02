@@ -100,7 +100,7 @@
     </a>
     }
     @else {
-    <a [routerLink]="'/explorer/'+driveItem.id" routerLinkActive="active" class="stretched-link col-7">
+    <a (click)="navigateToFolder(driveItem.id, driveItem.name)" routerLinkActive="active" class="stretched-link col-7">
       {{driveItem.name}}
     </a>
     }

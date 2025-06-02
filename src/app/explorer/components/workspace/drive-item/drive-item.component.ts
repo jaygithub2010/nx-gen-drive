@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { NgCommonService } from 'src/app/core/services/ng-common.service';
 import { DriveItem } from 'src/app/models/drive-item';
 declare var $:any;
 
@@ -13,6 +14,8 @@ declare var $:any;
 })
 export class DriveItemComponent {
   @Input() driveItem: DriveItem;
+  constructor(private _router: Router, private _ngCommonService: NgCommonService) { 
+  }
   ngOnInit() {
     $(document).ready(function() {
       $('[data-toggle="tooltip"]').tooltip({
@@ -21,6 +24,10 @@ export class DriveItemComponent {
         $(this).tooltip('hide');
       });
     })
+  }
+  navigateToFolder(folderId: string, folderName: string) {
+    this._router.navigate(['/explorer/'+folderId]);
+    this._ngCommonService.setWorkSpaceFolderNavigation(  {id: folderId, name: folderName});
   }
 }
 

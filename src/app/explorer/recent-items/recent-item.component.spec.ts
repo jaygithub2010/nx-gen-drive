@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeftPanelComponent } from './left-panel.component';
+import {  RecentItemComponent } from './recent-item.component';
 
 describe('LeftPanelComponent', () => {
-  let component: LeftPanelComponent;
-  let fixture: ComponentFixture<LeftPanelComponent>;
+  let component: RecentItemComponent;
+  let fixture: ComponentFixture<RecentItemComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    declarations: [LeftPanelComponent]
+    declarations: [RecentItemComponent]
 });
-    fixture = TestBed.createComponent(LeftPanelComponent);
+    fixture = TestBed.createComponent(RecentItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

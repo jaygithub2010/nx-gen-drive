@@ -4,6 +4,9 @@
     "getFiles":"/api/file/GetFiles",
     "loginGoogle":"/api/account/challenge/google",
     "loginDropBox":"/api/account/challenge/dropBox",
-    "loginMicrosoft":"/api/account/challenge/microsoft"
+    "loginMicrosoft":"/api/account/challenge/microsoft",
+    "getDriveItemParents":"/api/file/GetDriveItemParents",
+    "getRecentFolders":"/api/file/GetRecentFolders",
+    "getDriveItemNameById":"/api/file/GetDriveItemNameById"
 }
 }
