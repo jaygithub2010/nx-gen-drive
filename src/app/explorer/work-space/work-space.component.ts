@@ -29,6 +29,9 @@ export class WorkspaceComponent {
     this.ngCommonService.getFolderId().subscribe(currentfolderId => {
       this.driveItems$ = this.driveDataService.getDriveItems(currentfolderId);
     });
+    this.ngCommonService.getSearchOptions().subscribe((searchOptions) => {
+      this.driveItems$ = this.driveDataService.searchDriveItems(searchOptions);
+    });
   }
   // [{ id:"2",name:"test2",itemType:ItemType.FOLDER, size:123},{ id:"1",name:"test",itemType:ItemType.FOLDER, size:123}];
 

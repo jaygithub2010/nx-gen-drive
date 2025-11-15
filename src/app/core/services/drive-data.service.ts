@@ -5,6 +5,7 @@ import { APP_SETTINGS } from 'src/app/app.initializer';
 import { AppSettings } from 'src/app/models/app-settings';
 import { DriveItem } from 'src/app/models/drive-item';
 import { DriveItemLink } from 'src/app/models/drive-item-link';
+import { SearchOptions } from 'src/app/models/search-options';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,5 +34,7 @@ export class DriveDataService {
     const options = driveItemId ? { params: new HttpParams().set('driveItemId', driveItemId) } : {};
     return this.dIConfig$.pipe(concatMap(x => this.httpClient.get<DriveItemLink | null>(x.apiEndPoints.getDriveItemNameById, options)));
   }
-
+  searchDriveItems(searchOptions: SearchOptions): Observable<DriveItem[] | null> {
+    return this.dIConfig$.pipe(concatMap(x => this.httpClient.post<DriveItem[] | null>(x.apiEndPoints.searchFiles, searchOptions)));
+  }
 }

@@ -1,14 +1,14 @@
 export interface SearchOptions {
     searchFileName: string[];
-    nosearchFileName: string[];
+    noSearchFileName: string[];
     fileType: string[];
-    createdDateRange: Date[];
-    modifiedDateRange: Date[];
+    createdDateRange: string[];
+    modifiedDateRange: string[];
     owner: string[];
     sharedWith: string[];
     sharedBy: string[];
-    fullTextSearch: boolean;
-    nofullTextSearch: boolean;
+    fullTextSearch: string[];
+    noFullTextSearch: string[];
     searchLocation: string[];
     labelName: string[];
     isDeleted: boolean;

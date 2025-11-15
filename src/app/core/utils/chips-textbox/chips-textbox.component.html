@@ -1,0 +1,25 @@
+<mat-form-field class="advanced-search-chip-list">
+  <mat-chip-grid #chipGrid aria-label="Enter keywords to search files">
+    @for (keyWord of this.listOfChips; track keyWord) {
+      <mat-chip-row
+        (removed)="remove(keyWord)"
+        [editable]="true"
+        (edited)="edit(keyWord, $event)"
+        [aria-description]="'press enter to edit ' + keyWord"
+      >
+        
+        {{keyWord}}
+        <button matChipRemove [attr.aria-label]="'remove ' + keyWord">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    }
+    <input
+      placeholder="New keyWord..."
+      [matChipInputFor]="chipGrid"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-grid>
+</mat-form-field>

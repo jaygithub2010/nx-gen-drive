@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DriveItemLink } from 'src/app/models/drive-item-link';
-import { DriveDataService } from './drive-data.service';
+import { SearchOptions } from 'src/app/models/search-options';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,7 @@ export class NgCommonService {
   private _folderIdSubject: Subject<string> = new Subject<string>();
   private _leftPanelFolderNavigationSubject: Subject<DriveItemLink> = new Subject<DriveItemLink>();
   private _workSpaceFolderNavigationubject: Subject<DriveItemLink> = new Subject<DriveItemLink>();
-  constructor(private _driveDataService: DriveDataService) {
-
-  }
+  private _searchoOptionsSubject: Subject<SearchOptions> = new Subject<SearchOptions>();
   setFolderId(folderId: string): void {
     this._folderIdSubject.next(folderId);
   }
@@ -30,5 +28,11 @@ export class NgCommonService {
   }
   getWorkSpaceFolderNavigation(): Observable<DriveItemLink> {
     return this._workSpaceFolderNavigationubject.asObservable();
+  }
+  setSearchOptions(searchOptions: SearchOptions): void {
+    this._searchoOptionsSubject.next(searchOptions);
+  }
+  getSearchOptions(): Observable<SearchOptions> {
+    return this._searchoOptionsSubject.asObservable();
   }
 }

@@ -1,12 +1,13 @@
 {
-    "apiEndPoints":{
-    "getUser":"/api/account/GetUser",
-    "getFiles":"/api/file/GetFiles",
-    "loginGoogle":"/api/account/challenge/google",
-    "loginDropBox":"/api/account/challenge/dropBox",
-    "loginMicrosoft":"/api/account/challenge/microsoft",
-    "getDriveItemParents":"/api/file/GetDriveItemParents",
-    "getRecentFolders":"/api/file/GetRecentFolders",
-    "getDriveItemNameById":"/api/file/GetDriveItemNameById"
-}
+    "apiEndPoints": {
+        "getUser": "/api/account/GetUser",
+        "getFiles": "/api/file/GetFiles",
+        "loginGoogle": "/api/account/challenge/google",
+        "loginDropBox": "/api/account/challenge/dropBox",
+        "loginMicrosoft": "/api/account/challenge/microsoft",
+        "getDriveItemParents": "/api/file/GetDriveItemParents",
+        "getRecentFolders": "/api/file/GetRecentFolders",
+        "getDriveItemNameById": "/api/file/GetDriveItemNameById",
+        "searchFiles": "/api/file/SearchFiles"
+    }
 }

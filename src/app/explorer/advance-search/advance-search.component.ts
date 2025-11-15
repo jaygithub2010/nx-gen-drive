@@ -1,50 +1,63 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { SearchOptions } from 'src/app/models/search-options';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {COMMA, ENTER, O} from '@angular/cdk/keycodes';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import { ChipsTextboxComponent } from "src/app/core/utils/chips-textbox/chips-textbox.component";
+import { NgCommonService } from 'src/app/core/services/ng-common.service';
 
 @Component({
   selector: 'app-advance-search',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, MatChipsModule, MatFormFieldModule, MatIconModule, ChipsTextboxComponent],
   templateUrl: './advance-search.component.html',
   styleUrl: './advance-search.component.css'
 })
 export class AdvanceSearchComponent implements OnInit{
     // constructor(public activeModal: NgbActiveModal) {} 
+  fileTypes: string[] = ['Any', 'Word Document', 'Spreadsheet', 'Presentation', 'PDF', 'Image', 'Video', 'Audio', 'Archive', "Code File"];
+  owners: string[] = ['Any', 'Me', 'Not Me', 'Specific People'];
+  locations: string[] = ['My Drive', 'Shared with me', 'Starred', 'Trash', 'Archived'];
+  seletedFileType: string = 'Any';
+  @Output() searchOptionsEmitter= new EventEmitter<SearchOptions>();  
+  constructor(private _commonService: NgCommonService)
+  {
 
-  searchOptions:SearchOptions;
-  ngOnInit(): void {
-    
-    this.searchOptions = {
+  }
+  searchOptions: SearchOptions = {
       searchFileName: [],
-      nosearchFileName: [],
+      noSearchFileName: [],
       fileType: ['Any'],
-      createdDateRange: [],
-      modifiedDateRange: [],
+      createdDateRange:[new Date(1970,1,1).toISOString().substring(0, 10), new Date().toISOString().substring(0, 10) ],
+      modifiedDateRange: [new Date(1970,1,1).toISOString().substring(0, 10), new Date().toISOString().substring(0, 10)],
       owner: ['Any'],
       sharedWith: [],
       sharedBy: [],
-      fullTextSearch: false,
-      nofullTextSearch: false,
+      fullTextSearch: [],
+      noFullTextSearch: [],
       searchLocation: [],
       labelName: [],
       isDeleted: false,
       isArchived: false,
       isStarred: false
-    };
-  }
-  onDropdownSelected(event: Event) {
-    const target = event.target as HTMLSelectElement;
-    const selectedValue = target.value;
+    };;
+  selectedOwner: string = 'Any';
 
-    if (selectedValue === 'fileType') {
-      this.searchOptions.fileType = [selectedValue];
-    } else if (selectedValue === 'owner') {
-      this.searchOptions.owner = [selectedValue];
-    } else if (selectedValue === 'searchLocation') {
-      this.searchOptions.searchLocation = [selectedValue];
-    } else if (selectedValue === 'labelName') {
-      this.searchOptions.labelName = [selectedValue];
-    }
+  ngOnInit(): void {
+
+  }
+  selectFileType(fileType: string) {
+    this.seletedFileType = fileType;
+    this.searchOptions.fileType = [fileType];
+  }
+  selectOwner(owner: string) {
+    this.searchOptions.owner = [owner];
+    this.selectedOwner = owner;
+  }
+  onSearch() {
+    this.searchOptionsEmitter.emit(this.searchOptions);
+    this._commonService.setSearchOptions(this.searchOptions);
   }
 }

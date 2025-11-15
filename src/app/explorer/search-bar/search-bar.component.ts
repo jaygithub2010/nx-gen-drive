@@ -1,20 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AdvanceSearchComponent } from "../advance-search/advance-search.component";
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SearchOptions } from 'src/app/models/search-options';
+import { DriveDataService } from 'src/app/core/services/drive-data.service';
+import { Observable } from 'rxjs';
+import { DriveItem } from 'src/app/models/drive-item';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.css'],
-  standalone:true,
+  standalone: true,
   imports: [CommonModule, AdvanceSearchComponent]
 })
 export class SearchBarComponent {
-  constructor(private ngbModalService: NgbModal) {}
+  constructor() {
 
-    openAdvanceSearch() {
-    const modalRef = this.ngbModalService.open(AdvanceSearchComponent);
-    // modalRef.componentInstance.searchOptions = this.searchOptions;
-}
+  }
 }

@@ -1,26 +1,86 @@
-<div class="container-fluid">
-    <h1> Advance Search</h1>
-    <div class="row">
-        <span class="col-2"> File Type </span>
-        <div class="col-10">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{this.searchOptions.fileType}}
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">All</a>
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">Photos and Images</a>
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">Word Documents</a>
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">Videos</a>
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">Audio</a>
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">PDFs</a>
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">Spreadsheets</a>
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">Presentations</a>
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">Code Files</a>
-                    <a class="dropdown-item" (click)="onDropdownSelected($event)">Archives</a>
+<div class="modal-dialog modal-lg advanced-search-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="advanceSearchModalLabel">Advance Search</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row mt-3">
+                <span class="col-4 fw-bold"> File Type </span>
+                <div class="col-8">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{this.searchOptions.fileType}}
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @for (fileType of fileTypes; track fileType) {
+                            <li><a class="dropdown-item" (click)="selectFileType(fileType)">{{fileType}}</a></li>
+                            }
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="row mt-3">
+                <span class="col-4 fw-bold"> Owner </span>
+                <div class="col-8">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{this.searchOptions.owner}}
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @for (owner of owners; track owner) {
+                            <li><a class="dropdown-item" (click)="selectOwner(owner)">{{owner}}</a></li>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <span class="col-4 fw-bold"> File Name with Words </span>
+                <app-chips-textbox class="col-8" [listOfChips]="searchOptions.searchFileName"></app-chips-textbox>
+            </div>
+            <div class="row mt-3">
+                <span class="col-4 fw-bold"> File Name without Words </span>
+                <app-chips-textbox class="col-8" [listOfChips]="searchOptions.noSearchFileName"></app-chips-textbox>
+            </div>
+            <div class="row mt-3">
+                <span class="col-4 fw-bold"> Files with Text </span>
+                <app-chips-textbox class="col-8" [listOfChips]="searchOptions.fullTextSearch"></app-chips-textbox>
+            </div>
+            <div class="row mt-3">
+                <span class="col-4 fw-bold"> Files without Text </span>
+                <app-chips-textbox class="col-8" [listOfChips]="searchOptions.noFullTextSearch"></app-chips-textbox>
+            </div>
+            <div class="row mt-3">
+                <div class="d-flex align-items-center mt-3 gap-2">
+                    <span class="fw-bold col-4">Modified Date Range</span>
+                    <label for="startDateModified" class="ms-3 mb-0">From</label>
+                    <input id="startDateModified" type="date"  [(ngModel)]="searchOptions.modifiedDateRange[0]" class="form-control" style="width: 180px;">
+                    <label for="endDateModified" class="ms-3 mb-0">To</label>
+                    <input id="endDateModified" type="date" [(ngModel)]="searchOptions.modifiedDateRange[1]"  class="form-control" style="width: 180px;">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="d-flex align-items-center mt-3 gap-2">
+                    <span class="fw-bold col-4">Created Date Range</span>
+                    <label for="startDateCreated" class="ms-3 mb-0">From</label>
+                    <input id="startDateCreated" name="startDateCreated" type="date"  [(ngModel)]="searchOptions.createdDateRange[0]" class="form-control" style="width: 180px;">
+                    <label for="endDateCreated" class="ms-3 mb-0">To</label>
+                    <input id="endDateCreated" name="endDateCreated" type="date" [(ngModel)]="searchOptions.createdDateRange[1]" class="form-control" style="width: 180px;">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <span class="col-4 fw-bold"> Labels Search </span>
+                <app-chips-textbox class="col-8" [listOfChips]="searchOptions.labelName"></app-chips-textbox>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSearch()">Search</button>
             </div>
         </div>
     </div>
-</div>
