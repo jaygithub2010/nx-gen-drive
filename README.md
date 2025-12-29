@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
 
+This is a Angular project for various Cloud Storages. 
+<img width="965" height="712" alt="image" src="https://github.com/user-attachments/assets/098eaa05-de28-4806-b541-c513a4cb2fb9" />
+
+All the widgets/common utilities kept in app/core/utils folder
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
