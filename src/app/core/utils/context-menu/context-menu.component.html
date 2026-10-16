@@ -1,0 +1,10 @@
+@if(visible){<div
+  class="context-menu"
+  [style.top.px]="y"
+  [style.left.px]="x"
+>
+  <div class="item" (click)="select('Edit')">Edit</div>
+  <div class="item" (click)="select('Delete')">Delete</div>
+  <div class="item" (click)="select('Share')">Share</div>
+</div>
+}

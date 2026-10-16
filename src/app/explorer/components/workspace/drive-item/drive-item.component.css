@@ -4,3 +4,8 @@
     display: inline-block;
     white-space: nowrap;
 }
+.target {
+  border: 1px dashed #999;
+  padding: 40px;
+  margin: 40px;
+}

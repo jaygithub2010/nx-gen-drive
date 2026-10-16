@@ -1,4 +1,4 @@
-<div>
+<div  (contextmenu)='contextMenu.open($event, "https://localhost:7077/api/file/opendoc?docid=" + driveItem.id + "&mode=view&docName=" + driveItem.name + "&docType=" + driveItem.mimeType)' (click)="contextMenu.hide()">
   <div class="card" style="display: inline-block;height: 4em;width: 15em; margin: 1em;" data-toggle="tooltip"
     data-placement="bottom" title={{driveItem.name}}>
     @if (driveItem.entityType=="Folder")
@@ -94,7 +94,7 @@
     }
     @if(driveItem.entityType!="Folder")
     {
-    <a href="https://localhost:7077/api/file/opendoc?docid={{driveItem.id}}&mode=edit&docName={{driveItem.name}}&&docType={{driveItem.mimeType}}"
+    <a href="https://localhost:7077/api/file/opendoc?docid={{driveItem.id}}&mode=view&docName={{driveItem.name}}&&docType={{driveItem.mimeType}}"
       target="_blank" class="stretched-link col-7">
       {{driveItem.name}}
     </a>
@@ -107,3 +107,4 @@
   </div>
 
 </div>
+<app-context-menu #contextMenu>  </app-context-menu>

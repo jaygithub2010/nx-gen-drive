@@ -3,11 +3,12 @@ import { Component, Input } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { NgCommonService } from 'src/app/core/services/ng-common.service';
 import { DriveItem } from 'src/app/models/drive-item';
+import { ContextMenuComponent } from "src/app/core/utils/context-menu/context-menu.component";
 
 @Component({
   selector: 'app-drive-item',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ContextMenuComponent],
   templateUrl: './drive-item.component.html',
   styleUrl: './drive-item.component.css'
 })
